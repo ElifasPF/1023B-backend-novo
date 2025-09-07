@@ -66,6 +66,26 @@ app.listen(8000, () =>{
 })
 
 app.get('/produtos', async (req, res) => {
+    if(process.env.DBHOST === undefined){
+        res.status(500).send('ERRO: DBHOST não está definido nas variáveis de ambiente!')
+        return
+    }
+    if(process.env.DBUSER === undefined){
+        res.status(500).send('ERRO: DBUSER não está definido nas variáveis de ambiente!')
+        return
+    }
+    if(process.env.DBPASSWORD === undefined){
+        res.status(500).send('ERRO: DBPASSWORD não está definido nas variáveis de ambiente!')
+        return
+    }
+    if(process.env.DBDATABASE === undefined){
+        res.status(500).send('ERRO: DBDATABASE não está definido nas variáveis de ambiente!')
+        return
+    }
+    if(process.env.DBPORT === undefined){
+        res.status(500).send('ERRO: DBPORT não está definido nas variáveis de ambiente!')
+        return
+    }
     try {
         const conn = await mysql.createConnection({
             host: process.env.DBHOST,
@@ -73,6 +93,16 @@ app.get('/produtos', async (req, res) => {
             password: process.env.DBPASSWORD,
             database: process.env.DBDATABASE,
             port: Number(process.env.DBPORT)
-        });
+        })
+        const [dados] = await conn.query("SELECT * FROM produtos")
+        res.json(dados)
+    }
+    catch (err) {
+        if(err instanceof Error == false){
+            res.status(500).send('Erro desconhecido ao conectar ao banco de dados')
+            return
+        }
+        const error = err as Error
+        res.status(500).send('Erro ao conectar ao banco de dados: ' + err.message)
     }
 })
