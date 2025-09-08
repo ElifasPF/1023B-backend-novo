@@ -12,9 +12,3 @@ INSERT INTO `defaultdb`.`produtos` (`id`, `nome`, `preco`, `urlfoto`, `descricao
 INSERT INTO `defaultdb`.`produtos` (`id`, `nome`, `preco`, `urlfoto`, `descricao`) VALUES ('4', 'Uva', '14.10', 'https://52586.cdn.lojaquevende.com.br/static/52586/sku/frutas-uva-verde-sem-semente--p-1610106700609.pnghttps://52586.cdn.lojaquevende.com.br/static/52586/sku/frutas-uva-verde-sem-semente--p-1610106700609.png', 'Uva da hora');
 INSERT INTO `defaultdb`.`produtos` (`id`, `nome`, `preco`, `urlfoto`, `descricao`) VALUES ('5', 'Laranja', '10.00', 'https://static.wixstatic.com/media/d40923_64569dd49a3a45c5b075dfe21d291463~mv2.jpg/v1/crop/x_2,y_46,w_1000,h_658/fill/w_400,h_260,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/d40923_64569dd49a3a45c5b075dfe21d291463~mv2.jpg', 'Laranja por saco');
 
-DBPASSWORD=''
-DBHOST='localhost'
-DBUSER='root'
-DBPORT='3306'
-DBDATABASE='testdb'
-MONGOURI='mongodb://localhost:27017'
