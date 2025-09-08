@@ -64,7 +64,6 @@ Faz pelo menos 3 inserções nessa tabela
 app.listen(8000, () =>{
     console.log('Servidor rodando na porta: 8000')
 })
-
 app.get('/produtos', async (req, res) => {
     if(process.env.DBHOST === undefined){
         res.status(500).send('ERRO: DBHOST não está definido nas variáveis de ambiente!')
