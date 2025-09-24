@@ -41,5 +41,7 @@ class CarrinhoController {
     //listar
     //remover                -> Remover o carrinho todo
 
+    listar(req:Request, res:Response) {}
+
 }
 export default new CarrinhoController();
